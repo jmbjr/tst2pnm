@@ -59,7 +59,7 @@ for my $fn(@ARGV) {
     my $out = "";
 
     # Don't black-fill if there's less than 2 line of pics
-    $PICS_PER_LINE = @pics if @pics < $PICS_PER_LINE;
+    $PICS_PER_LINE = @pics; #if @pics < $PICS_PER_LINE;
 
     while(@pics) {
         while(@pics < $PICS_PER_LINE) {
