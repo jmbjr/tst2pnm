@@ -39,7 +39,17 @@ for my $fn(@ARGV) {
         my $pic2= "";
         for my $y(0..31) {
             for my $x(0..31) {
-                $pic2 .= substr $pic, 3*(32*$x+$y), 3;
+				my @pixrgb = unpack "C3", substr $pic, 3*(32*$x+$y), 3;
+				
+				if ($pixrgb[0] == 0 && $pixrgb[1] == 1 && $pixrgb[2] == 2) {
+					$pixrgb[0] = 255;
+					$pixrgb[1] = 0;
+					$pixrgb[2] = 255;
+				}				
+				$newval = pack "C3", @pixrgb;
+				
+				$pic2 .= $newval;
+
             }
         }
         push @pics, $pic2;
