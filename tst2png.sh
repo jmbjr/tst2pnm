@@ -30,6 +30,6 @@ echo "converting pnm to png"
 echo "if this fails, be sure you've installed imagemagick and created an environment variable, imagemagick, pointing to magick.exe"
 echo "you can also do an export PATH=\$PATH:/c/Program\ Files/ImageMagick-7.0.8-Q16/magick.exe"
 
-magick.exe convert $pnmfile $pngfile
+magick.exe convert $pnmfile -transparent "rgb(255,0,255)" $pngfile
 
 
